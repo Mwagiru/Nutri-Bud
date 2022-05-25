@@ -6,21 +6,18 @@ function NewMeal({onAddMeal}) {
     const [amount,setAmount]=useState('');
     function submit(e){
         e.preventDefault()
-        const username="jmwagiru";
-        const hash="23be2ba096a7ae62a46b524ed1a1931519e3020e";
         const mealObj= {meal: {title:"string", amount:"number",steps:"string"}}
-        fetch(
-          `https://api.spoonacular.com/mealplanner/${hash}/items`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(mealObj),
+        fetch("https://api.spoonacular.com/mealplanner/jmwagiru/items", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          params: {
+              username:"jmwagiru",
           }
-        )
+        })
           .then((r) => r.json())
-          .then((data) => console.log(data.meal));
+          .then((data) => onAddMeal(data.meal));
 
 
     }
