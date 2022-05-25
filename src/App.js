@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import MealList from "./components/MealList";
 import NewMeal from "./components/NewMeal";
+import Header from "./components/Header";
 function App() {
   const [mealData, setMealData]= useState(null);
   const [calories, setCalories]= useState(2000);
@@ -32,6 +33,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Header />
       <section className="controls">
         <input
           type="number"
