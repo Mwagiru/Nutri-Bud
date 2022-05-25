@@ -17,7 +17,7 @@ function Meal({meal}) {
   
     return (
     <article>
-        <h1>{meal.title}</h1>
+        <h1 className='mealtitle'>{meal.title}</h1>
         <img src={imageUrl} alt="recipe"/>
         <ul>
             <li> Prep Time:{meal.readyInMinutes} minutes</li>

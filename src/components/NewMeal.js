@@ -12,12 +12,13 @@ function NewMeal({onAddMeal}) {
           headers: {
             "Content-Type": "application/json",
           },
-          params: {
-              username:"jmwagiru",
-          }
+          parameters: {
+            username: "jmwagiru",
+          },
+          body: JSON.stringify(mealObj),
         })
           .then((r) => r.json())
-          .then((data) => onAddMeal(data.meal));
+          .then((data) => console.log(data.meal));
 
 
     }
