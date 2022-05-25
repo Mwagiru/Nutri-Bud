@@ -4,15 +4,15 @@ function Meal({meal}) {
     const [imageUrl , setImageUrl]= useState("");
     useEffect(()=>{
         fetch(
-          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=a9f977fac95c409a89b3083142c1b3e9&includeNutrition=false&dishTypes`
+          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=ed70935873d9434ab02473e7466fa0b9&includeNutrition=false&dishTypes`
         )
-        .then((response)=> response.json())
-        .then((data)=>{
+          .then((response) => response.json())
+          .then((data) => {
             setImageUrl(data.image);
-        }) 
-        .catch(()=>{
+          })
+          .catch(() => {
             console.log("error");
-        })   
+          });   
     },[meal.id])
   
     return (

@@ -10,16 +10,16 @@ function App() {
   }
   function getMealData(){
     fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=a9f977fac95c409a89b3083142c1b3e9&timeFrame=day&targetCalories=${calories}`
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=ed70935873d9434ab02473e7466fa0b9&timeFrame=day&targetCalories=${calories}`
     )
-    .then((response)=> response.json())
-    .then((data)=>{
-      setMealData(data);
-      console.log(data);
-    })
-    .catch(()=>{
-      console.log("error")
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        setMealData(data);
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
   }
   return (
     <div className="App">
