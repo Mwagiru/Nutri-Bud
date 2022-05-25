@@ -1,12 +1,14 @@
 import React,{useState} from "react";
 import MealList from "./components/MealList";
-
+import NewMeal from "./components/NewMeal";
+import NutrionalValue from "./components/NutrionalValue";
 function App() {
   const [mealData, setMealData]= useState(null);
   const [calories, setCalories]= useState(2000);
-
+  const [meals, setMeals]=useState([])
   function handleChange(e){
-    setCalories(e.target.value)
+    setCalories(e.target.value);
+
   }
   function getMealData(){
     fetch(
@@ -21,6 +23,10 @@ function App() {
         console.log("error");
       });
   }
+  function addMeal(newMeal){
+    const updatedMeals = [... meals,newMeal]
+    setMeals(updatedMeals);
+  }
   return (
     <div className="App">
       <section className="controls">
@@ -31,7 +37,10 @@ function App() {
         />
       </section>
       <button onClick={getMealData}>Generate</button>
-      {mealData && <MealList mealData={mealData}/>}
+      {mealData && <MealList mealData={mealData} />}
+      <br/>
+      <br/>
+      <NewMeal onAddMeal={addMeal} />
     </div>
   );
 }
