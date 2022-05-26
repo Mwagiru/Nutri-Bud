@@ -7,13 +7,13 @@ function NewMeal({onAddMeal}) {
     function submit(e){
         e.preventDefault()
         const mealObj= {meal: {title:"string", amount:"number",steps:"string"}}
-        fetch("https://api.spoonacular.com/mealplanner/jmwagiru/items", {
+        fetch(`https://api.spoonacular.com/mealplanner/{username}/items`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           parameters: {
-            username: "jmwagiru",
+            username: "joymwagiru",
           },
           body: JSON.stringify(mealObj),
         })

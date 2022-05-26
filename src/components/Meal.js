@@ -1,10 +1,9 @@
 import React,{useEffect,useState} from 'react'
-
-function Meal({meal}) {
+function Meal({meal},props) {
     const [imageUrl , setImageUrl]= useState("");
     useEffect(()=>{
         fetch(
-          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=ed70935873d9434ab02473e7466fa0b9&includeNutrition=false&dishTypes`
+          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=8e6dbd48d33b4cf2858b69f7f271dad6&includeNutrition=false&dishTypes`
         )
           .then((response) => response.json())
           .then((data) => {
@@ -15,17 +14,21 @@ function Meal({meal}) {
           });   
     },[meal.id])
   
+
     return (
-    <article>
-        <h1 className='mealtitle'>{meal.title}</h1>
-        <img src={imageUrl} alt="recipe"/>
+      <>
+      <article>
+        <h1 className="mealtitle">{meal.title}</h1>
+        <img src={imageUrl} alt="recipe" />
         <ul>
-            <li> Prep Time:{meal.readyInMinutes} minutes</li>
-            <li>Servings:{meal.servings}</li>
+          <li> Prep Time:{meal.readyInMinutes} minutes</li>
+          <li>Servings:{meal.servings}</li>
         </ul>
         <a href={meal.sourceUrl}>Get Recipe</a>
-    </article>
-  );
+        
+      </article>
+      </>
+    );
 }
 
 export default Meal

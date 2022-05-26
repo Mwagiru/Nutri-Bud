@@ -1,7 +1,8 @@
 import React from 'react'
 import Meal from './Meal'
-function MealList({mealData}) {
+function MealList({mealData} ,props) {
     const nutrients = mealData.nutrients; 
+    const FavoriteComponent = props.favoriteComponent;
   return (
     <main>
       <section className="nutrients">

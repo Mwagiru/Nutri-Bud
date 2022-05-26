@@ -17,7 +17,7 @@ function App() {
   }
   function getMealData(){
     fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=ed70935873d9434ab02473e7466fa0b9&timeFrame=day&targetCalories=${calories}&diet=${diet}`
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=8e6dbd48d33b4cf2858b69f7f271dad6&timeFrame=day&targetCalories=${calories}&diet=${diet}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -53,7 +53,7 @@ function App() {
       <button onClick={getMealData}>Generate</button>
       {mealData && <MealList mealData={mealData} />}
       <br />
-      <br />
+      <NewMeal onAddMeal={addMeal}/>
     </div>
   );
 }
