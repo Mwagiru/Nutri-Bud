@@ -65,17 +65,18 @@ article {
 }
 a {
   text-decoration: none;
-  background-color: black;
-  color: white;
+  color: black;
   width: fit-content;
   padding: 0.5rem 1rem;
 }
-.image-container {
-  position:relative;
-  transition: transform 0.2s;
+table {
+  background-color: black;
+  color: wheat;
+  border-collapse: collapse;
+  width: 100%;
 }
-.image-container:hover {
-  cursor:pointer;
+th,td {
+  border: 1px solid white;
 }
 @media only screen and (max-width:550px){
   .meals {

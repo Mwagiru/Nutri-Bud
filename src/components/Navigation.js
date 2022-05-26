@@ -1,22 +1,13 @@
 import React from 'react'
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import MealList from './MealList';
+import signIn from './signIn';
 function Navigation() {
   return (
-    <div>
-      <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            Search
-          </a>
-          <a class="navbar-brand" href="#">
-            Display
-          </a>
-          <a class="navbar-brand" href="#">
-            Calories
-          </a>
-        </div>
-      </nav>
-    </div>
+    <Routes>
+      <Route path="/" component={signIn} />
+      <Route path="/mealList" component={MealList}/>
+    </Routes>
   );
 }
 

@@ -3,11 +3,20 @@ import MealList from "./components/MealList";
 import NewMeal from "./components/NewMeal";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route} from 'react-router-dom';
+import signIn from "./components/signIn";
+import { signInWithGoogle } from "./components/firebase";
 function App() {
   const [mealData, setMealData]= useState(null);
   const [calories, setCalories]= useState(2000);
   const [meals, setMeals]=useState([])
   const [diet,setDiet]= useState('');
+  const [isUserIn, setIsUserIn]=useState(true);
+
   function handleChange(e){
     setCalories(e.target.value);
 
@@ -17,7 +26,7 @@ function App() {
   }
   function getMealData(){
     fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=8e6dbd48d33b4cf2858b69f7f271dad6&timeFrame=day&targetCalories=${calories}&diet=${diet}`
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=82e45a03bdbc4916a700e245e3b0ee34&timeFrame=day&targetCalories=${calories}&diet=${diet}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -32,8 +41,11 @@ function App() {
     const updatedMeals = [... meals,newMeal]
     setMeals(updatedMeals);
   }
+
   return (
     <div className="App">
+      <button onClick={signInWithGoogle}>Sign In WIth Google</button>
+      <br/>
       <Header />
       <br />
       <Navigation />
@@ -52,8 +64,6 @@ function App() {
       </section>
       <button onClick={getMealData}>Generate</button>
       {mealData && <MealList mealData={mealData} />}
-      <br />
-      <NewMeal onAddMeal={addMeal}/>
     </div>
   );
 }
