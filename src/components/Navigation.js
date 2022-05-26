@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import MealList from './MealList';
 import { signInWithGoogle } from "./firebase"
 function Navigation() {
   const [click, setClick]= useState(true);
