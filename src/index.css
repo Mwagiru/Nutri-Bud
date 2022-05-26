@@ -21,6 +21,7 @@ input {
   padding: 0.5rem;
   margin-bottom: 1rem;
   background-color: whitesmoke;
+  color:brown;
 }
 button {
   padding: 0.5rem 1rem;
@@ -79,9 +80,6 @@ a {
   color: wheat;
   width: fit-content;
   padding: 0.5rem 1rem;
-}
-input {
-  color: brown;
 }
 table,th,td {
   color: aliceblue;
