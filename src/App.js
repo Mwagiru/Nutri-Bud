@@ -1,14 +1,13 @@
 import React,{useState} from "react";
 import MealList from "./components/MealList";
-import NewMeal from "./components/NewMeal";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {
   BrowserRouter as Router,
   Routes,
+  Switch,
   Route} from 'react-router-dom';
-import signIn from "./components/signIn";
 import { signInWithGoogle } from "./components/firebase";
 function App() {
   const [mealData, setMealData]= useState(null);
@@ -43,28 +42,29 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <button onClick={signInWithGoogle}>Sign In WIth Google</button>
-      <br/>
-      <Header />
-      <br />
-      <Navigation />
-      <br />
-      <section className="controls">
-        <input
-          type="number"
-          placeholder="Enter Calories..."
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Enter Diet..."
-          onChange={handleChangeDiet}
-        />
-      </section>
-      <button onClick={getMealData}>Generate</button>
-      {mealData && <MealList mealData={mealData} />}
-    </div>
+    <>
+      <div className="App">
+        <br />
+        <Header />
+        <br />
+        <Navigation />
+        <br />
+        <section className="controls">
+          <input
+            type="number"
+            placeholder="Enter Calories..."
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Enter Diet..."
+            onChange={handleChangeDiet}
+          />
+        </section>
+        <button onClick={getMealData}>Generate</button>
+        {mealData && <MealList mealData={mealData} />}
+      </div>
+    </>
   );
 }
 

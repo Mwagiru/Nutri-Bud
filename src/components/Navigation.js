@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MealList from './MealList';
-import signIn from './signIn';
+import { signInWithGoogle } from "./firebase"
 function Navigation() {
+  const [click, setClick]= useState(true);
+  function handleClick(){
+    setClick(!click)
+  }
   return (
-    <Routes>
-      <Route path="/" component={signIn} />
-      <Route path="/mealList" component={MealList}/>
-    </Routes>
+    <div>
+      <button onClick={signInWithGoogle}>{click? "Sign In": "Sign Out"}</button>
+    </div>
   );
 }
 
