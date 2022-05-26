@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 .App {
   display: flex;
@@ -19,17 +20,18 @@ input {
   text-align: center;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  background-color: whitesmoke;
 }
 button {
   padding: 0.5rem 1rem;
-  background-color: black;
-  color: white;
+  background-color: wheat;
+  color:brown;
   border: none;
   font-size: 1rem;
 }
 button:hover {
   cursor: pointer;
-  background-color: black;
+  background-color: white;
 }
 main {
   display: flex;
@@ -43,10 +45,19 @@ main {
 .nutrients ul {
   display: flex;
   width: 35rem;
-  justify-content:space-evenly
+  justify-content:space-evenly;
+  color: bisque;
+}
+.header h1 {
+  color: white;
+  font-size: 2em;
 }
 ul {
   list-style:none
+}
+li {
+  color: white;
+  line-height: 1.5em;
 }
 .meals {
   display: flex;
@@ -65,19 +76,21 @@ article {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: wheat;
   width: fit-content;
   padding: 0.5rem 1rem;
 }
-table {
-  background-color: black;
-  color: wheat;
-  border-collapse: collapse;
-  width: 100%;
+input {
+  color: brown;
 }
-th,td {
-  border: 1px solid white;
+table,th,td {
+  color: aliceblue;
+  border: 1px dotted wheat;
+  text-align: center;
+  width: 60vw;
+  font-size: 1.05em;
 }
+
 @media only screen and (max-width:550px){
   .meals {
     flex-direction: column;

@@ -9,6 +9,7 @@ import {
   Switch,
   Route} from 'react-router-dom';
 import { signInWithGoogle } from "./components/firebase";
+import Table from "./components/Table";
 function App() {
   const [mealData, setMealData]= useState(null);
   const [calories, setCalories]= useState(2000);
@@ -48,6 +49,8 @@ function App() {
         <Header />
         <br />
         <Navigation />
+        <br />
+        <Table />
         <br />
         <section className="controls">
           <input
